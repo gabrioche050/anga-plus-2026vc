@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="manifest.json">
+<title>ANGÁ PLUS - V12 ORGANIZADO - COMPLETO SEM REMOVER - PIX 92994215426</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#070708;color:#fff;padding-bottom:90px}
+header{padding:14px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #00FF88;position:sticky;top:0;background:rgba(7,7,8,.92);backdrop-filter:blur(20px);z-index:20}
+header b{letter-spacing:4px;font-size:14px;background:linear-gradient(90deg,#00FF88,#FFC700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
+.tag{font-size:11px;color:#000;background:#00FF88;padding:4px 10px;border-radius:99px;font-weight:900}
+.tag.admin{background:#FFC700}
+.view{padding:12px;max-width:600px;margin:0 auto}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(17,17,17,.98);border-top:1px solid #1e1e1e;display:flex;justify-content:space-around;padding:8px 6px 20px;z-index:30}
+.bottom-nav button{background:0;border:0;color:#666;font-size:9px;padding:10px 8px;border-radius:14px;font-weight:800}
+.bottom-nav button.active{color:#000;background:#00FF88}
+input,textarea,select{background:#111;border:1px solid #1e1e1e;color:#fff;border-radius:12px;padding:14px;width:100%;outline:none;font-size:14px}
+.btn{width:100%;padding:14px;border-radius:12px;border:0;background:#00FF88;color:#000;font-weight:900;margin-top:8px;cursor:pointer}
+.btn-sec{background:#1a1a1a;color:#fff;border:1px solid #222}
+.btn-danger{background:#1a0a0a;color:#ff5555;border:1px solid #ff2222}
+.btn-gold{background:#FFC700;color:#000;font-weight:900}
+.btn-blue{background:#1DA1F2;color:#fff;font-weight:900}
+.btn-tupi{background:linear-gradient(90deg,#00FF88,#FFC700);color:#000;font-weight:900}
+.btn-green{background:#00FF88;color:#000;font-weight:900;border:2px solid #00FF88}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.card{background:#111;border:1px solid #1a1a1a;border-radius:18px;overflow:hidden;cursor:pointer;position:relative}
+.card.destaque{border:2px solid #FFC700;box-shadow:0 0 20px rgba(255,199,0,.3)}
+.card.verificado{border:2px solid #1DA1F2;box-shadow:0 0 20px rgba(29,161,242,.4)}
+.card.adulto{border:2px solid #ff0000}
+.card.pendente{border:2px dashed #FFC700}
+.card.pendente::before{content:"⏳ AGUARDANDO ADM";position:absolute;top:8px;left:8px;background:#FFC700;color:#000;font-size:8px;padding:3px 8px;border-radius:99px;font-weight:900;z-index:2}
+.card.verificado::before{content:"✅ VERIFICADO";position:absolute;top:8px;left:8px;background:#1DA1F2;color:#fff;font-size:8px;padding:3px 8px;border-radius:99px;font-weight:900;z-index:2}
+.card.destaque::before{content:"⭐ DESTAQUE";position:absolute;top:8px;left:8px;background:#FFC700;color:#000;font-size:9px;padding:3px 8px;border-radius:99px;font-weight:900;z-index:2}
+.card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.card .info{padding:10px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin:14px 0}
+.stat{background:#111;border:1px solid #1a1a1a;border-radius:16px;padding:12px;text-align:center}
+.stat b{font-size:14px;display:block}
+.stat.green{border-color:#00FF88;background:linear-gradient(135deg,#0e1510,#111)}
+.stat.gold{border-color:#FFC700;background:linear-gradient(135deg,#332200,#111)}
+.upload-box{border:1px dashed #222;border-radius:12px;padding:16px;text-align:center;color:#666;font-size:12px;cursor:pointer;background:#111}
+.char-card{display:flex;gap:10px;background:#111;border:1px solid #1a1a1a;border-radius:14px;padding:10px;margin-bottom:8px;align-items:center}
+.char-card img{width:48px;height:48px;border-radius:12px;object-fit:cover;background:#0a0a0a;border:1px solid #1e1e1e}
+.genre{display:inline-block;font-size:11px;border:1px solid #222;padding:5px 10px;border-radius:99px;margin:3px;color:#666;cursor:pointer}
+.genre.active{background:#00FF88;color:#000;border-color:#00FF88;font-weight:800}
+.chap{padding:12px;border:1px solid #1a1a1a;border-radius:12px;margin-bottom:8px;background:#101010;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.hidden{display:none !important}
+#leitor{position:fixed;inset:0;background:#000;z-index:100;overflow:auto;display:none}
+.leitor-top{position:sticky;top:0;background:rgba(0,0,0,.9);backdrop-filter:blur(12px);padding:12px;display:flex;gap:12px;align-items:center;border-bottom:1px solid #111}
+.badge{font-size:10px;background:#FFC700;color:#000;padding:2px 6px;border-radius:99px;font-weight:900;margin-left:6px}
+.badge.blue{background:#1DA1F2;color:#fff}
+.badge.ban{background:#ff2222;color:#fff}
+.badge.livre{background:#00FF88;color:#000}
+.badge.m10{background:#00CCFF;color:#000}
+.badge.m12{background:#FFCC00;color:#000}
+.badge.m14{background:#FF8800;color:#000}
+.badge.m16{background:#FF0000;color:#fff}
+.badge.m18{background:#000;color:#fff;border:1px solid #fff}
+.badge.m18A{background:#ff0000;color:#fff}
+.badge.pendente{background:#FFC700;color:#000}
+.badge.amarelo{background:#FFC700;color:#000}
+.badge.verde{background:#00FF88;color:#000}
+#terms,#confirmDel,#pixModal,#blockModal,#ageModal,#doarModal,#resgateModal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;display:flex;align-items:center;justify-content:center;padding:16px}
+.box{background:#111;border:1px solid #1e1e1e;border-radius:24px;padding:22px;max-width:420px;width:100%}
+.user-row{display:flex;justify-content:space-between;align-items:center;background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:10px;margin-bottom:8px}
+.mission{background:linear-gradient(90deg,#111,#0e1510);border:1px solid #00FF88;border-radius:16px;padding:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.shop-item{background:#111;border:1px solid #1a1a1a;border-radius:16px;padding:14px;margin-bottom:10px}
+.shop-item.verif{border-color:#1DA1F2}
+.pix-card{background:linear-gradient(135deg,#0e1510,#111);border:2px solid #00FF88;border-radius:20px;padding:18px;text-align:center;margin-bottom:12px}
+.pix-card.blue{border-color:#1DA1F2;background:linear-gradient(135deg,#0a1520,#111)}
+.pix-card.gold{border-color:#FFC700;background:linear-gradient(135deg,#332200,#111)}
+.pix-card.green{border-color:#00FF88;background:linear-gradient(135deg,#0e1510,#111)}
+.pix-key-box{background:#000;border:1px dashed #00FF88;border-radius:12px;padding:12px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;font-family:monospace}
+.alert-adm{background:linear-gradient(90deg,#332200,#111);border:2px solid #FFC700;border-radius:16px;padding:14px;margin-bottom:12px}
+details{background:#111;border:1px solid #222;border-radius:12px;padding:10px;margin:10px 0}
+summary{font-weight:900;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.rank-item{display:flex;gap:10px;background:#111;border:1px solid #1a1a1a;border-radius:14px;padding:12px;margin-bottom:8px;align-items:center}
+.rank-pos{font-size:18px;font-weight:900;width:30px;text-align:center}
+.rank-pos.gold{color:#FFC700}.rank-pos.silver{color:#aaa}.rank-pos.bronze{color:#cd7f32}
+</style>
+</head>
+<body>
+<header><b>ANGÁ PLUS</b><span id="userTag" class="tag">DESLOGADO</span></header>
+<div id="terms" class="hidden"><div class="box"><h3>Antes de entrar no Plus</h3><p style="font-size:12px;color:#888">Sistema de idade + 18 curadoria ADM.</p><button class="btn" onclick="aceitarTermo()">Aceitar ✅</button></div></div>
+<div id="ageModal" class="hidden"><div class="box" style="border-color:#ff2222"><h3 id="ageTitle">🔞 Conteúdo 18</h3><p id="ageText" style="font-size:12px;color:#888;margin:10px 0"></p><div style="display:flex;gap:8px"><button class="btn btn-sec" style="flex:1" onclick="$('ageModal').classList.add('hidden')">Voltar</button><button class="btn btn-danger" style="flex:1" onclick="confirmarIdade()">Tenho idade ✅</button></div></div></div>
+<div id="confirmDel" class="hidden"><div class="box"><h3 style="color:#ff5555">Apagar obra?</h3><p id="delText" style="font-size:13px;color:#888;margin:12px 0"></p><div id="delStep1"><div style="display:flex;gap:8px"><button class="btn btn-sec" style="flex:1" onclick="$('confirmDel').classList.add('hidden')">NÃO</button><button class="btn btn-danger" style="flex:1" onclick="delStep2()">SIM</button></div></div><div id="delStep2" class="hidden"><input id="delPass" type="password" placeholder="Senha"><br><br><div style="display:flex;gap:8px"><button class="btn btn-sec" style="flex:1" onclick="$('confirmDel').classList.add('hidden')">Cancelar</button><button class="btn btn-danger" style="flex:1" onclick="confirmarApagarFinal()">APAGAR</button></div></div></div></div>
+<div id="pixModal" class="hidden"><div class="box" style="border-color:#00FF88"><h3 style="color:#00FF88">💰 Pix 92994215426 - Copia e Cola</h3><div id="pixContent"></div><button class="btn btn-sec" onclick="$('pixModal').classList.add('hidden')">Fechar</button></div></div>
+<div id="doarModal" class="hidden"><div class="box" style="border-color:#FFC700"><h3 style="color:#FFC700">💛 Doar Tupi Amarelo</h3><p style="font-size:11px;color:#888;margin:8px 0">Doação vira Tupi Verde (tem valor em dinheiro, não pode ser gasto nem doado) - CÓDIGO DETECTA</p><input id="doarHandle" placeholder="@handle pra doar"><br><br><input id="doarQtd" type="number" placeholder="Qtd Tupi Amarelo"><br><br><div style="display:flex;gap:8px"><button class="btn btn-sec" style="flex:1" onclick="$('doarModal').classList.add('hidden')">Cancelar</button><button class="btn btn-gold" style="flex:1" onclick="confirmarDoacao()">DOAR</button></div></div></div>
+<div id="resgateModal" class="hidden"><div class="box" style="border-color:#00FF88"><h3 style="color:#00FF88">💚 Resgatar Tupi Verde</h3><p style="font-size:11px;color:#888;margin:8px 0">Mínimo 100 Tupi Verde = R$1,00 - Só Verde tem valor</p><div id="resgateInfo"></div><input id="resgateQtd" type="number" placeholder="Qtd Verde pra resgatar (mín 100)"><br><br><input id="resgatePix" placeholder="Seu PIX pra receber"><br><br><div style="display:flex;gap:8px"><button class="btn btn-sec" style="flex:1" onclick="$('resgateModal').classList.add('hidden')">Cancelar</button><button class="btn btn-green" style="flex:1" onclick="confirmarResgate()">RESGATAR</button></div></div></div>
+<div id="blockModal" class="hidden"><div class="box"><h3 style="color:#FFC700" id="blockTitle">Bloquear conta</h3><input id="blockHandle" class="hidden"><input id="blockMotivo" placeholder="Motivo"><br><br><textarea id="blockInstrucao" placeholder="O que fazer pra desbloquear"></textarea><br><br><input id="blockTempo" type="number" placeholder="Minutos (60, 1440)"><br><br><div style="display:flex;gap:8px"><button class="btn btn-sec" style="flex:1" onclick="$('blockModal').classList.add('hidden')">Cancelar</button><button class="btn btn-gold" style="flex:1" onclick="confirmarBlock()">BLOQUEAR</button></div></div></div>
+<div id="auth" class="view"><h2>Cria tua conta de Autor</h2><input id="uName" placeholder="Nome de autor"><br><br><input id="uHandle" placeholder="Handle: ex: seu_nome (gabrioche050 = ADM)"><br><br><input id="uPass" type="password" placeholder="Senha"><br><br><div id="birthArea"><label style="font-size:12px;color:#FFC700">📅 Data de nascimento</label><input id="uBirth" type="date"><br><br></div><button class="btn" onclick="criarConta()">CRIAR CONTA E ENTRAR</button><p id="loginLink" style="text-align:center;color:#666;font-size:12px;margin-top:12px;display:none">Já tem conta? <span onclick="fazerLogin()" style="color:#00FF88;text-decoration:underline;cursor:pointer">Fazer login</span> • <span onclick="forcarLogout()" style="text-decoration:underline;cursor:pointer">Limpar cache</span></p></div>
+<div id="app" class="view hidden">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px"><span style="font-size:11px;color:#555">Logado <b id="who"></b> • <span style="color:#FFC700">💛 <b id="myBalance">0</b></span> • <span style="color:#00FF88">💚 <b id="myBalanceVerde">0</b></span> <span id="verifTag"></span> <span id="ageTag"></span> • <span onclick="sair()" style="text-decoration:underline;cursor:pointer">sair</span></span><div style="display:flex;gap:4px"><button class="btn btn-sec" style="width:auto;padding:6px 10px;font-size:10px;margin:0" onclick="restaurarTudoCompleto()">🔄 RESTAURAR TUDO</button><button class="btn btn-gold" style="width:auto;padding:6px 10px;font-size:10px;margin:0" onclick="forcarBackup()">💾 BACKUP</button></div></div>
+<div id="feedTab"><div style="display:flex;justify-content:space-between;align-items:center"><h3>Feed</h3><div style="display:flex;gap:6px"><button class="btn btn-gold" style="width:auto;padding:8px 14px;font-size:11px;margin:0" onclick="abrirDoarModal()">💛 DOAR</button><button class="btn btn-gold" style="width:auto;padding:8px 14px;font-size:11px;margin:0" onclick="aba('loja')">🛒 LOJA</button></div></div><div id="grid" class="grid"></div></div>
+<div id="postarTab" class="hidden"><h3>Novo Angá</h3><input type="file" id="fileCover" accept="image/*" class="hidden" onchange="previewCover(this)"><div class="upload-box" onclick="document.getElementById('fileCover').click()"><span id="coverPreview">📸 Capa com imagem preservada</span></div><input id="mCover" placeholder="Ou link da capa" style="margin-top:8px"><br><br><input id="mTitle" placeholder="Título"><br><br><textarea id="mDesc" placeholder="Sinopse"></textarea><br><br><label style="font-size:11px;color:#888">Classificação:</label><select id="mClass"></select><br><br><div id="genreList"></div><br><div id="charsForm"></div><button class="btn-sec btn" onclick="addCharForm()">+ Personagem (com foto preservada)</button><button class="btn" onclick="postarManga()">CRIAR OBRA</button></div>
+<div id="studioTab" class="hidden"><h2>Meu Studio</h2><p id="studioHandle" style="font-size:12px;color:#666"></p><div class="stat-grid"><div class="stat"><b id="sViews">0</b><span style="font-size:11px">views</span></div><div class="stat"><b id="sLikes">0</b><span style="font-size:11px">corações</span></div><div class="stat gold"><b id="sBalance">0</b><span style="font-size:11px">💛 Amarelo</span></div><div class="stat green"><b id="sBalanceVerde">0</b><span style="font-size:11px">💚 Verde</span></div></div><div style="display:flex;gap:6px;margin:10px 0"><button class="btn btn-gold" style="flex:1" onclick="abrirDoarModal()">💛 DOAR AMARELO</button><button class="btn btn-green" style="flex:1" onclick="abrirResgateModal()">💚 RESGATAR 100+</button></div><button class="btn" onclick="aba('postar')">+ CRIAR NOVO ANGÁ</button><button class="btn btn-gold" onclick="aba('perfil')">🎨 PERFIL (0,31 T$)</button><h4 style="margin:18px 0 8px">Minhas obras</h4><div id="meusGrid" class="grid"></div></div>
+<div id="rankTab" class="hidden"><h3>🔥 Ranking</h3><div style="display:flex;gap:6px;margin:10px 0;flex-wrap:wrap"><button class="btn btn-gold" style="width:auto;padding:8px 12px;font-size:11px;margin:0" onclick="renderRanking('views')">👁️ Views</button><button class="btn btn-tupi" style="width:auto;padding:8px 12px;font-size:11px;margin:0" onclick="renderRanking('likes')">❤️ Likes</button><button class="btn btn-gold" style="width:auto;padding:8px 12px;font-size:11px;margin:0" onclick="renderRanking('amarelo')">💛 Amarelo</button><button class="btn btn-green" style="width:auto;padding:8px 12px;font-size:11px;margin:0" onclick="renderRanking('verde')">💚 Verde</button><button class="btn btn-sec" style="width:auto;padding:8px 12px;font-size:11px;margin:0" onclick="renderRanking('obras')">📚 Obras</button></div><div id="rankGrid" class="grid"></div><h4 style="margin-top:16px">🏆 Top Usuários</h4><div id="rankUsers"></div></div>
+<div id="buscarTab" class="hidden"><input id="q" placeholder="🔍 título, @autor" oninput="buscar()"><div id="searchGrid" class="grid" style="margin-top:12px"></div></div>
+<div id="lojaTab" class="hidden">
+<h2 style="color:#FFC700">🛒 Loja Plus - PIX 92994215426 - PREÇOS JUSTOS</h2>
+<div class="pix-card gold"><h3 style="color:#FFC700">👑 PLUS+ R$9,90 / mês - 1000 T$ AMARELO</h3><div style="background:#111;border-radius:12px;padding:10px;margin-top:8px;text-align:left;font-size:11px;color:#fff">✅ 1000 Tupi Amarelo todo mês<br>✅ Selo PLUS+<br>✅ Sem anúncios<br>⏰ 30 dias - ILIMITADO</div><button class="btn btn-gold" style="margin-top:10px" onclick="comprarPlus(9.9,1000,'PLUS_BARATO')">ASSINAR R$9,90 - 1000 T$ AMARELO</button></div>
+<div class="pix-card gold"><h3 style="color:#FFC700">👑 PLUS+ R$19,90 / mês - 1000 T$ AMARELO</h3><div style="background:#111;border-radius:12px;padding:10px;margin-top:8px;text-align:left;font-size:11px;color:#fff">✅ 1000 Tupi Amarelo todo mês (PLUS+ TODO MÊS DÁ 1000)<br>✅ PLUS+ + Verificado<br>✅ Sem anúncios + destaque<br>⏰ 30 dias - ILIMITADO</div><button class="btn btn-gold" style="margin-top:10px" onclick="comprarPlus(19.9,1000,'PLUS_COMPLETO')">ASSINAR R$19,90 - 1000 T$ AMARELO</button></div>
+<div class="pix-card blue"><h3 style="color:#1DA1F2">✅ VERIFICADO AZUL - R$14,90 / mês - JUSTO</h3><div style="background:#111;border-radius:12px;padding:10px;margin-top:8px;text-align:left;font-size:11px;color:#fff">✅ Selo azul<br>⭐ Destaque automático GRÁTIS<br>🚀 Cresce mais fácil<br>💰 <b>50% OFF em tudo</b><br>⏰ 30 dias</div><button class="btn btn-blue" style="margin-top:10px" onclick="comprarVerificado()">COMPRAR VERIFICADO R$14,90</button></div>
+<div class="pix-card"><h3 style="color:#00FF88">💎 Pacotes Tupi $ - ILIMITADO 1k 2k 100k 1M</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+<div style="background:#111;border:1px solid #00FF88;border-radius:12px;padding:10px"><b>100 T$</b><br><span style="font-size:11px;color:#888">R$ 2 - 100</span><br><button class="btn btn-tupi" style="padding:8px;font-size:11px" onclick="comprarPix(100,2)">Comprar</button></div>
+<div style="background:#111;border:1px solid #222;border-radius:12px;padding:10px"><b>300 T$</b><br><span style="font-size:11px;color:#888">R$ 5 - 300</span><br><button class="btn btn-tupi" style="padding:8px;font-size:11px" onclick="comprarPix(300,5)">Comprar</button></div>
+<div style="background:#111;border:1px solid #222;border-radius:12px;padding:10px"><b>1.000 T$</b><br><span style="font-size:11px;color:#888">R$ 12 - 1k</span><br><button class="btn btn-tupi" style="padding:8px;font-size:11px" onclick="comprarPix(1000,12)">Comprar</button></div>
+<div style="background:#111;border:1px solid #FFC700;border-radius:12px;padding:10px"><b>5.000 T$</b><br><span style="font-size:11px;color:#888">R$ 35 - 5k</span><br><button class="btn btn-gold" style="padding:8px;font-size:11px" onclick="comprarPix(5000,35)">Comprar</button></div>
+<div style="background:#111;border:1px solid #FFC700;border-radius:12px;padding:10px"><b>100.000 T$</b><br><span style="font-size:11px;color:#888">R$ 300 - 100k</span><br><button class="btn btn-gold" style="padding:8px;font-size:11px" onclick="comprarPix(100000,300)">100k</button></div>
+<div style="background:#111;border:1px solid #00FF88;border-radius:12px;padding:10px"><b>1.000.000 T$</b><br><span style="font-size:11px;color:#888">R$ 2000 - 1M</span><br><button class="btn btn-green" style="padding:8px;font-size:11px" onclick="comprarPix(1000000,2000)">1M</button></div>
+</div></div>
+<h4>🎯 Missões - Só 5 T$ Amarelo</h4><div id="missionsList"></div>
+<h4 style="margin-top:18px">✨ Loja Destaques - PREÇO JUSTO</h4>
+<div class="shop-item" id="shopDestaque"><div style="display:flex;justify-content:space-between"><div><b>⭐ Destaque 24h</b><br><span style="font-size:10px;color:#666" id="destaqueDesc">80 T$ AMARELO</span></div><span style="color:#FFC700;font-weight:900" id="destaquePreco">80 T$</span></div><button class="btn btn-gold" id="btnDestaque" onclick="comprarDestaque()">Comprar 80 T$</button></div>
+<div class="shop-item" id="shopImpulso"><div style="display:flex;justify-content:space-between"><div><b>📣 Impulsionar 7 dias</b><br><span style="font-size:10px;color:#666" id="impulsoDesc">250 T$ AMARELO</span></div><span style="color:#FFC700;font-weight:900" id="impulsoPreco">250 T$</span></div><button class="btn btn-gold" id="btnImpulso" onclick="comprarImpulso(7)">Comprar 250 T$</button></div>
+<div class="shop-item green" style="border-color:#00FF88"><div style="display:flex;justify-content:space-between"><div><b>💚 Resgate Verde -> Dinheiro</b><br><span style="font-size:10px;color:#666">Mín 100 Verde = R$1 - Só Verde tem valor</span></div><span style="color:#00FF88;font-weight:900">RESGATAR</span></div><button class="btn btn-green" onclick="abrirResgateModal()">Resgatar 100+ Verde</button></div>
+<div class="shop-item" style="border-color:#FFC700"><div style="display:flex;justify-content:space-between"><div><b>🎬 Vídeo Promo</b><br><span style="font-size:10px;color:#666">Eu divulgo - JUSTO</span></div><span style="color:#FFC700;font-weight:900">R$10</span></div><button class="btn btn-gold" onclick="comprarVideo()">R$10 - Comprar</button></div>
+</div>
+<div id="perfilTab" class="hidden"><h2>🎨 Perfil</h2><input type="file" id="fileAvatar" accept="image/*" class="hidden" onchange="previewAvatar(this)"><div class="upload-box" onclick="document.getElementById('fileAvatar').click()"><span id="avatarPreview">📸 Foto perfil</span></div><br><input type="file" id="fileBanner" accept="image/*" class="hidden" onchange="previewBanner(this)"><div class="upload-box" onclick="document.getElementById('fileBanner').click()"><span id="bannerPreview">🖼️ Banner</span></div><br><input id="pColor" type="color" value="#00FF88"><br><br><textarea id="pBio" placeholder="Bio"></textarea><br><br><button class="btn btn-tupi" onclick="salvarPerfil()">SALVAR 0,31 T$</button></div>
+<div id="adminTab" class="hidden">
+<h2 style="color:#FFC700">👑 Painel ADM V12 - ORGANIZADO - PIX 92994215426</h2>
+<div id="notif18" class="alert-adm hidden"><h4 style="color:#FFC700">🔔 Obras 18 aguardando tua classificação</h4><p id="notifText" style="font-size:11px;color:#fff;margin-top:6px"></p></div>
+<div style="display:flex;gap:6px;margin:10px 0"><input id="admAddHandle" placeholder="@handle pra virar ADM" style="flex:1"><button class="btn btn-gold" style="width:auto;margin:0;padding:10px" onclick="adminDarADM($('admAddHandle').value)">DAR ADM</button></div>
+<p style="font-size:10px;color:#888">ADMs: <b id="listaADMs" style="color:#FFC700"></b></p>
+<div class="stat-grid"><div class="stat"><b id="aUsers">0</b><span style="font-size:11px">users</span></div><div class="stat"><b id="aObras">0</b><span style="font-size:11px">obras</span></div><div class="stat gold"><b id="aTupi">0</b><span style="font-size:11px">💛 Amarelo</span></div><div class="stat green"><b id="aTupiVerde">0</b><span style="font-size:11px">💚 Verde</span></div></div>
+<details open><summary style="color:#FFC700">🔞 CLASSIFICAR OBRA 18 (SÓ ADM)</summary>
+<div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap"><input id="changeId" type="number" placeholder="ID obra" style="flex:1"><select id="changeClass" style="flex:1"><option value="18 Livre">18 Livre - tranquilo (15+ vê)</option><option value="18 Normal">18 Normal (16+ vê)</option><option value="18 Medio">18 Médio (17+ vê)</option><option value="18 Adulto">18 Adulto - pesado (só 18+)</option><option value="18 Indefinido">Voltar pra Indefinido</option><option value="Livre">Livre</option><option value="14+">14+</option><option value="16+">16+</option></select><button class="btn btn-danger" style="width:auto;margin:0;padding:12px 10px;font-size:10px" onclick="adminMudarClass()">CLASSIFICAR</button></div>
+<div id="adminObrasList" class="grid" style="margin-top:10px"></div>
+</details>
+<details open><summary style="color:#00FF88">👥 CONTAS - PODERES ADM (SÓ ADM VÊ) - NÃO PODE ENTRAR EM gabrioche050 SE NÃO FOR O DONO</summary>
+<div style="margin-top:10px"><div id="adminUsersList"></div></div>
+</details>
+<details><summary style="color:#FFC700">💰 GERENCIAR TUPI $ + PIX 92994215426 - ILIMITADO 1k 1M</summary>
+<div style="margin-top:10px;display:flex;gap:6px"><input id="giveHandle" placeholder="@handle" style="flex:1"><input id="giveValor" type="number" placeholder="Qtd ILIMITADO" style="flex:1"><select id="giveTipo" style="flex:1"><option value="amarelo">💛 Amarelo</option><option value="verde">💚 Verde</option></select><button class="btn btn-gold" style="width:auto;padding:12px 10px;font-size:10px;margin:0" onclick="adminDarDinheiro()">DAR</button><button class="btn btn-danger" style="width:auto;padding:12px 10px;font-size:10px;margin:0" onclick="adminTirarDinheiro()">TIRAR</button></div>
+<p style="font-size:10px;color:#888;margin-top:6px">Seu: 💛 <b id="admSaldo">0</b> • 💚 <b id="admSaldoVerde">0</b></p>
+<div id="pixPedidos" style="margin-top:10px"></div>
+<div id="resgatePedidos" style="margin-top:10px"></div>
+</details>
+<details><summary style="color:#1DA1F2">✅ VERIFICADOS AZUL</summary>
+<div style="margin-top:10px;display:flex;gap:6px"><input id="verifHandle" placeholder="@handle" style="flex:1"><button class="btn btn-blue" style="width:auto;margin:0;padding:12px 10px;font-size:10px" onclick="adminLiberarVerificadoInput()">DAR 30d</button><button class="btn btn-sec" style="width:auto;margin:0;padding:12px 10px;font-size:10px" onclick="adminRemoverVerificado()">REMOVER</button></div>
+<div id="verifList" style="margin-top:10px"></div>
+</details>
+<button class="btn btn-danger" style="margin-top:16px" onclick="zerarTudoADM()">🗑️ ZERAR MEU SALDO ADM (0 T$)</button>
+</div>
+</div>
+<div id="obraView" class="view hidden">
+<button class="btn btn-sec" onclick="voltarFeed()">← VOLTAR</button><br><br>
+<img id="oCover" style="width:120px;aspect-ratio:3/4;object-fit:cover;border-radius:12px;float:left;margin-right:12px;border:1px solid #1a1a1a"><h2 id="oTitle"></h2><p id="oAutor" style="font-size:11px;color:#666"></p><div id="oClass" style="margin-top:6px"></div><div id="oGenres" style="margin-top:6px"></div><p id="oDesc" style="font-size:13px;color:#999;margin-top:8px;clear:both;padding-top:12px"></p><div style="clear:both"></div>
+<div id="obraStats" class="stat-grid hidden" style="margin-top:12px"></div><br>
+<h4>Personagens</h4><div id="oChars"></div><br>
+<div style="display:flex;gap:8px"><button class="btn" style="flex:1;margin-top:0" onclick="curtir()" id="likeBtn">❤️ Curtir</button><span id="likeCount" style="background:#111;border:1px solid #1a1a1a;padding:14px;border-radius:12px;font-weight:900;min-width:80px;text-align:center"></span></div><br>
+<div id="addCapArea" class="hidden" style="border:1px solid #00FF88;padding:12px;border-radius:12px;background:#0e1510"><h4 style="color:#00FF88">Adicionar capítulo com imagem</h4><br><input id="cTitle" placeholder="Título"><br><br><input type="file" id="filePages" accept="image/*" multiple class="hidden" onchange="previewPages(this)"><div class="upload-box" onclick="document.getElementById('filePages').click()"><span id="pagesPreview">📸 Páginas com imagem preservada</span></div><textarea id="cPages" placeholder="Ou links" style="margin-top:8px"></textarea><br><br><button class="btn" onclick="postarCap()">POSTAR CAPÍTULO</button></div>
+<h4 style="margin:16px 0 8px">Capítulos</h4><div id="capsList"></div>
+<div id="delArea" class="hidden" style="margin-top:24px;border-top:1px solid #1a1a1a;padding-top:16px"><button class="btn btn-danger" onclick="pedirApagar()">🗑️ APAGAR OBRA</button></div>
+</div>
+<div id="leitor"><div class="leitor-top"><button onclick="fecharLeitor()" style="background:#1a1a1a;color:#fff;border:1px solid #222;padding:8px 14px;border-radius:99px;font-weight:800">← Voltar</button><div><b id="lTitle"></b><p id="lAutor" style="font-size:11px;color:#888"></p></div></div><div id="lPages"></div></div>
+<div class="bottom-nav" id="bottomNav" style="display:none">
+<button id="bFeed" class="active" onclick="aba('feed')">Feed</button><button id="bBuscar" onclick="aba('buscar')">Buscar</button><button id="bLoja" onclick="aba('loja')">Loja</button><button id="bRank" onclick="aba('rank')">🏆 Rank</button><button id="bStudio" onclick="aba('studio')">Studio</button><button id="bAdmin" class="hidden" onclick="aba('admin')" style="color:#FFC700">👑 ADM</button>
+</div>
+<script>
+const PIX_KEY="92994215426";
+const FIREBASE_URL = "https://anga-plus-2026-default-rtdb.firebaseio.com/anga.json";
+let users = JSON.parse(localStorage.getItem('anga_users')||'[]');
+let user = JSON.parse(localStorage.getItem('anga_user_v3')||'null');
+let mangas = JSON.parse(localStorage.getItem('anga_mangas_v3')||'[]');
+let capitulos = JSON.parse(localStorage.getItem('anga_caps_v3')||'[]');
+let bans = JSON.parse(localStorage.getItem('anga_bans')||'{}');
+let balances = JSON.parse(localStorage.getItem('anga_balances')||'{}');
+let balancesVerde = JSON.parse(localStorage.getItem('anga_balances_verde')||'{}');
+let blocks = JSON.parse(localStorage.getItem('anga_blocks')||'{}');
+let blockInfos = JSON.parse(localStorage.getItem('anga_blockInfos')||'{}');
+let profiles = JSON.parse(localStorage.getItem('anga_profiles')||'{}');
+let missions = JSON.parse(localStorage.getItem('anga_missions')||'{}');
+let destaques = JSON.parse(localStorage.getItem('anga_destaques')||'{}');
+let verificados = JSON.parse(localStorage.getItem('anga_verificados')||'{}');
+let pixPedidos = JSON.parse(localStorage.getItem('anga_pix')||'[]');
+let resgatePedidos = JSON.parse(localStorage.getItem('anga_resgate')||'[]');
+let admins = JSON.parse(localStorage.getItem('anga_admins')||'["gabrioche050"]');
+let obraAtual=null, mangaParaApagar=null, charCount=0, tempAvatar="", tempBanner="", obraPendente=null;
+const $=id=>document.getElementById(id);
+const isAdmin=()=> user && admins.includes(user.handle);
+function saveLocal(){
+  localStorage.setItem('anga_users',JSON.stringify(users));
+  localStorage.setItem('anga_mangas_v3',JSON.stringify(mangas));
+  localStorage.setItem('anga_caps_v3',JSON.stringify(capitulos));
+  localStorage.setItem('anga_bans',JSON.stringify(bans));
+  localStorage.setItem('anga_blocks',JSON.stringify(blocks));
+  localStorage.setItem('anga_blockInfos',JSON.stringify(blockInfos));
+  localStorage.setItem('anga_balances',JSON.stringify(balances));
+  localStorage.setItem('anga_balances_verde',JSON.stringify(balancesVerde));
+  localStorage.setItem('anga_profiles',JSON.stringify(profiles));
+  localStorage.setItem('anga_missions',JSON.stringify(missions));
+  localStorage.setItem('anga_destaques',JSON.stringify(destaques));
+  localStorage.setItem('anga_verificados',JSON.stringify(verificados));
+  localStorage.setItem('anga_pix',JSON.stringify(pixPedidos));
+  localStorage.setItem('anga_resgate',JSON.stringify(resgatePedidos));
+  localStorage.setItem('anga_admins',JSON.stringify(admins));
+  localStorage.setItem('anga_backup_users',JSON.stringify(users));
+  localStorage.setItem('anga_backup_mangas',JSON.stringify(mangas));
+  localStorage.setItem('anga_backup_caps',JSON.stringify(capitulos));
+  localStorage.setItem('anga_backup_balances',JSON.stringify(balances));
+  localStorage.setItem('anga_backup_profiles',JSON.stringify(profiles));
+  localStorage.setItem('anga_backup_verde',JSON.stringify(balancesVerde));
+}
+async function carregarOnline(){
+  if(FIREBASE_URL.includes("SEU-PROJETO")) return;
+  try{
+    let r = await fetch(FIREBASE_URL);
+    if(r.ok){
+      let d = await r.json();
+      if(d){
+        if(d.users) users=d.users;
+        if(d.mangas) mangas=d.mangas;
+        if(d.capitulos) capitulos=d.capitulos;
+        if(d.bans) bans=d.bans;
+        if(d.blocks) blocks=d.blocks;
+        if(d.blockInfos) blockInfos=d.blockInfos;
+        if(d.balances) balances=d.balances;
+        if(d.balancesVerde) balancesVerde=d.balancesVerde;
+        if(d.profiles) profiles=d.profiles;
+        if(d.missions) missions=d.missions;
+        if(d.destaques) destaques=d.destaques;
+        if(d.verificados) verificados=d.verificados;
+        if(d.pixPedidos) pixPedidos=d.pixPedidos;
+        if(d.resgatePedidos) resgatePedidos=d.resgatePedidos;
+        if(d.admins) admins=d.admins;
+        saveLocal();
+      }
+    }
+  }catch(e){}
+}
+function saveAll(){
+  saveLocal();
+  if(FIREBASE_URL.includes("SEU-PROJETO")) return;
+  fetch(FIREBASE_URL,{method:'PUT',body:JSON.stringify({users,mangas,capitulos,bans,blocks,blockInfos,balances,balancesVerde,profiles,missions,destaques,verificados,pixPedidos,resgatePedidos,admins})}).catch(()=>{});
+}
+function saveAdmins(){ saveAll(); }
+function forcarBackup(){
+  saveLocal();
+  alert('💾 BACKUP FEITO: '+users.length+' users, '+mangas.length+' obras, '+capitulos.length+' caps com imagens preservadas! 💛 '+Object.values(balances).reduce((a,b)=>a+b,0)+' Amarelo 💚 '+Object.values(balancesVerde).reduce((a,b)=>a+b,0)+' Verde');
+}
+function restaurarTudoCompleto(){
+  let backupUsers = JSON.parse(localStorage.getItem('anga_backup_users')||'[]');
+  let backupMangas = JSON.parse(localStorage.getItem('anga_backup_mangas')||'[]');
+  let backupCaps = JSON.parse(localStorage.getItem('anga_backup_caps')||'[]');
+  let backupBalances = JSON.parse(localStorage.getItem('anga_backup_balances')||'{}');
+  let backupProfiles = JSON.parse(localStorage.getItem('anga_backup_profiles')||'{}');
+  let backupVerde = JSON.parse(localStorage.getItem('anga_backup_verde')||'{}');
+  if(backupUsers.length>0 || backupMangas.length>0){
+    if(confirm('Restaurar TUDO do backup? Users:'+backupUsers.length+' Obras:'+backupMangas.length+' Caps:'+backupCaps.length+' com imagens preservadas?')){
+      users=backupUsers.length?backupUsers:users;
+      mangas=backupMangas.length?backupMangas:mangas;
+      capitulos=backupCaps.length?backupCaps:capitulos;
+      balances=Object.keys(backupBalances).length?backupBalances:balances;
+      profiles=Object.keys(backupProfiles).length?backupProfiles:profiles;
+      balancesVerde=Object.keys(backupVerde).length?backupVerde:balancesVerde;
+      saveAll();
+      carregarOnline().then(()=>{alert('✅ TUDO restaurado: '+users.length+' usuários, '+mangas.length+' obras, '+capitulos.length+' capítulos com imagens, '+Object.keys(balances).length+' saldos!');renderFeed();renderAdmin();});
+      return;
+    }
+  }
+  carregarOnline().then(()=>{
+    alert('🔄 Restaurando do Firebase: '+users.length+' users, '+mangas.length+' obras, '+capitulos.length+' caps com imagens');
+    renderFeed();renderAdmin();
+  });
+}
+function forcarLogout(){localStorage.removeItem('anga_user_v3');location.reload();}
+function adminEntrarComo(handle){
+  if(!isAdmin()) return;
+  handle=handle.replace(/@/g,'').toLowerCase();
+  if(handle==='gabrioche050' && user.handle!=='gabrioche050'){
+    return alert('⛔ PROTEGIDO: Só o dono gabrioche050 pode entrar na própria conta! ADM não pode entrar em gabrioche050.');
+  }
+  if(!confirm('Entrar como @'+handle+'? (pode entrar em qualquer conta menos gabrioche050 se não for o dono)')) return;
+  let alvo = users.find(u=>u.handle===handle);
+  if(!alvo) return alert('User não existe');
+  user = alvo; localStorage.setItem('anga_user_v3', JSON.stringify(user)); location.reload();
+}
+function adminResetarSenha(handle){
+  if(!isAdmin()) return;
+  if(handle==='gabrioche050' && user.handle!=='gabrioche050') return alert('⛔ Não pode resetar senha do dono gabrioche050');
+  let nova = prompt('Nova senha para @'+handle+':');
+  if(!nova || nova.length < 3) return;
+  let alvo = users.find(u=>u.handle===handle);
+  if(!alvo) return;
+  alvo.pass = btoa(nova);
+  saveAll(); alert('✅ Senha de @'+handle+' resetada para: '+nova); renderAdmin();
+}
+function adminDarADM(handle){
+  handle = handle.replace(/@/g,'').toLowerCase();
+  if(!users.find(u=>u.handle===handle)) return alert('User não existe');
+  if(!admins.includes(handle)){ admins.push(handle); saveAdmins(); alert('👑 @'+handle+' agora é ADM - pode entrar em qualquer conta menos gabrioche050 (protegido)'); renderAdmin(); }
+}
+function adminRemoverADM(handle){
+  if(handle==='gabrioche050') return alert('Não pode remover o dono');
+  admins = admins.filter(h=>h!==handle); saveAdmins(); alert('❌ @'+handle+' removido de ADM'); renderAdmin();
+}
+function formatT(n){
+  n=Number(n)||0;
+  if(!isFinite(n)) return "0";
+  if(n>=1000000000) return (n/1000000000).toFixed(n%1000000000===0?0:1)+"B";
+  if(n>=1000000) return (n/1000000).toFixed(n%1000000===0?0:1)+"M";
+  if(n>=1000) return (n/1000).toFixed(n%1000===0?0:1)+"k";
+  return n.toString();
+}
+function formatTFull(n){ n=Number(n)||0; if(!isFinite(n)) return "0"; return n.toLocaleString('pt-BR'); }
+function isVerificado(h){ let v=verificados[h]; return v && Date.now() < v.expira; }
+function diasRestantes(h){ let v=verificados[h]; if(!v) return 0; return Math.max(0, Math.ceil((v.expira-Date.now())/86400000)); }
+function precoComDesconto(base){ return isVerificado(user?.handle) ? Math.floor(base*0.5) : base; }
+function calcularIdade(dataNasc){ let hoje=new Date(); let nasc=new Date(dataNasc); let idade=hoje.getFullYear()-nasc.getFullYear(); let m=hoje.getMonth()-nasc.getMonth(); if(m<0||(m===0&&hoje.getDate()<nasc.getDate())) idade--; return idade; }
+function limparSaldosBugados(){}
+function podeVerClassificacao(classif, idade){
+  if(isAdmin()) return true;
+  if(classif==="Livre") return true;
+  if(classif==="10+") return idade>=10;
+  if(classif==="12+") return idade>=12;
+  if(classif==="14+") return idade>=14;
+  if(classif==="16+") return idade>=15;
+  if(classif==="18 Livre") return idade>=15;
+  if(classif==="18 Normal"||classif==="18") return idade>=16;
+  if(classif==="18 Medio") return idade>=17;
+  if(classif==="18 Adulto") return idade>=18;
+  if(classif==="18 Indefinido") return idade>=18;
+  return true;
+}
+function badgePublico(c){
+  if(!c) return `<span class="badge livre">LIVRE</span>`;
+  if(c==="18 Indefinido") return `<span class="badge pendente">18 ⏳</span>`;
+  if(c.includes("18")) return `<span class="badge m18">18</span>`;
+  if(c==="Livre") return `<span class="badge livre">LIVRE</span>`;
+  if(c==="16+") return `<span class="badge m16">16+</span>`;
+  if(c==="14+") return `<span class="badge m14">14+</span>`;
+  if(c==="12+") return `<span class="badge m12">12+</span>`;
+  if(c==="10+") return `<span class="badge m10">10+</span>`;
+  return `<span class="badge">${c}</span>`;
+}
+function badgeADM(c){
+  if(c==="18 Adulto") return `<span class="badge m18A">18 ADULTO</span>`;
+  if(c==="18 Indefinido") return `<span class="badge pendente">18 INDEFINIDO</span>`;
+  if(c && c.includes("18")) return `<span class="badge m18">${c.toUpperCase()}</span>`;
+  return badgePublico(c);
+}
+const GENEROS=["Ação","Aventura","Amazônico","Lenda","Comédia","Romance","Drama","Mistério","Terror","Sci-Fi","Esporte","Escolar","Isekai BR","Histórico","Fantasia","Sobrenatural","Mecha","Musical","LGBT","GL","BL","Yuri","Yaoi","Trans","Bi","Pan","Filosofia","Psicológico","Life","Slice of Life","Vida Escolar","Cotidiano","Maduro","Adulto +18 (Sugestivo)","Gore","Sangue","Suspense","Policial","Militar","Magia","Super Poder","Harém","Harém Reverso","Isekai","Reencarnação","Vilão","Anti-herói","Zumbi","Vampiro","Paródia"];
+function checkTerms(){if(!localStorage.getItem('anga_terms'))$('terms').classList.remove('hidden');else $('terms').classList.add('hidden');}
+function aceitarTermo(){localStorage.setItem('anga_terms','ok');$('terms').classList.add('hidden');}
+function compress(f,maxW,q){return new Promise(res=>{let r=new FileReader();r.onload=e=>{let img=new Image();img.onload=()=>{let c=document.createElement('canvas');let ratio=img.width/img.height;c.width=maxW;c.height=maxW/ratio;c.getContext('2d').drawImage(img,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',q));};img.src=e.target.result;};r.readAsDataURL(f);});}
+async function previewCover(i){let f=i.files[0];if(!f)return;$('coverPreview').textContent='⏳';tempCover=await compress(f,600,0.7);$('coverPreview').innerHTML=`<img src="${tempCover}" style="max-height:100px;border-radius:8px"><br>✅ Imagem preservada`;}
+async function previewPages(i){let files=[...i.files];tempPages=[];for(let f of files)tempPages.push(await compress(f,900,0.6));$('pagesPreview').textContent=`${tempPages.length} págs ✅ Imagens preservadas`; $('cPages').value=tempPages.join(',');}
+async function previewAvatar(i){let f=i.files[0];if(!f)return;tempAvatar=await compress(f,200,0.7);$('avatarPreview').innerHTML=`<img src="${tempAvatar}" style="max-height:80px;border-radius:50%"><br>✅`;}
+async function previewBanner(i){let f=i.files[0];if(!f)return;tempBanner=await compress(f,800,0.6);$('bannerPreview').innerHTML=`<img src="${tempBanner}" style="max-height:60px;border-radius:8px"><br>✅`;}
+function renderGenres(){$('genreList').innerHTML=GENEROS.map(g=>`<span class="genre ${selectedGenres.includes(g)?'active':''}" onclick="toggleGenre('${g}')">${g}</span>`).join('');}
+function toggleGenre(g){if(selectedGenres.includes(g))selectedGenres=selectedGenres.filter(x=>x!==g);else{if(selectedGenres.length>=4)return alert('Máx 4 gêneros');selectedGenres.push(g);}renderGenres();}
+function addCharForm(n='',r=''){charCount++;let id=charCount;let d=document.createElement('div');d.className='char-card';d.id='char-'+id;d.innerHTML=`<input type="file" class="hidden" id="f${id}" accept="image/*" onchange="charImg(this,${id})"><div id="p${id}" style="width:48px;height:48px;border-radius:12px;background:#0a0a0a;border:1px dashed #222;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden" onclick="document.getElementById('f${id}').click()">📸</div><div style="flex:1"><input id="cn${id}" placeholder="Nome" value="${n}" style="padding:8px;font-size:13px"><input id="cr${id}" placeholder="Papel" value="${r}" style="padding:8px;font-size:12px;margin-top:4px"></div><span onclick="document.getElementById('char-${id}').remove()" style="color:#f55;cursor:pointer">✕</span>`;$('charsForm').appendChild(d);}
+async function charImg(inp,id){let f=inp.files[0];if(!f)return;let el=$('p'+id);el.textContent='⏳';let comp=await compress(f,200,0.7);el.innerHTML=`<img src="${comp}" style="width:100%;height:100%;object-fit:cover">`;el.dataset.img=comp;}
+function renderSelectClass(){
+ let sel=$('mClass');
+ if(isAdmin()){
+   sel.innerHTML=`<option value="Livre">🟢 Livre</option><option value="10+">🔵 10+</option><option value="12+">🟡 12+</option><option value="14+" selected>🟠 14+</option><option value="16+">🔴 16+</option><option value="18 Livre">🟣 18 Livre (15+ vê) - ADM</option><option value="18 Normal">🟣 18 Normal (16+ vê) - ADM</option><option value="18 Medio">🟣 18 Médio (17+ vê) - ADM</option><option value="18 Adulto">⚫ 18 Adulto (só 18+ - ADM)</option>`;
+ } else {
+   sel.innerHTML=`<option value="Livre">🟢 Livre</option><option value="10+">🔵 10+</option><option value="12+">🟡 12+</option><option value="14+" selected>🟠 14+</option><option value="16+">🔴 16+</option><option value="18">🟣 18 - vai pra análise ADM</option>`;
+ }
+}
+function criarConta(){
+ let n=$('uName').value.trim(),h=$('uHandle').value.trim().replace(/@/g,'').toLowerCase(),p=$('uPass').value.trim(),birth=$('uBirth').value;
+ if(!n||!h||!p) return alert('Preenche tudo');
+ if(admins.includes(h)){
+   let existente=users.find(u=>u.handle==h);
+   if(existente){ if(existente.pass!==btoa(p)) return alert('Handle ADM já existe'); user=existente; user.idade=99; }
+   else { let novo={id:Date.now(),name:n,handle:h,pass:btoa(p),birth:"1990-01-01",idade:99,isADM:true,criadoEm:new Date().toLocaleDateString()}; users.push(novo); user=novo; balances[h]=0; balancesVerde[h]=0; missions[h]={reads:0,claimed:0}; }
+   saveAll(); localStorage.setItem('anga_user_v3',JSON.stringify(user)); alert('👑 ADM logado - 99 anos - Vê tudo!'); init(); return;
+ }
+ if(!birth) return alert('Precisa data de nascimento!');
+ if(users.find(u=>u.handle==h)) return alert('Handle já existe');
+ if(bans[h]) return alert('⛔ Banida');
+ let idade=calcularIdade(birth);
+ if(idade<13) return alert('Mínimo 13 anos');
+ let novo={id:Date.now(),name:n,handle:h,pass:btoa(p),birth:birth,idade:idade,criadoEm:new Date().toLocaleDateString()};
+ users.push(novo); balances[h]=0; balancesVerde[h]=0; missions[h]={reads:0,claimed:0}; saveAll(); user=novo; localStorage.setItem('anga_user_v3',JSON.stringify(user)); init();
+}
+function fazerLogin(){let h=prompt('Handle:'),p=prompt('Senha:');if(!h||!p)return;h=h.replace(/@/g,'').toLowerCase();if(bans[h]){let info=blockInfos[h];return alert(`⛔ BANIDO\nMotivo: ${info?.motivo||'Indefinido'}`);}if(blocks[h]&&Date.now()<blocks[h]){let info=blockInfos[h];let mins=Math.ceil((blocks[h]-Date.now())/60000);return alert(`⏰ BLOQUEADO ${mins} min`);}let u=users.find(x=>x.handle==h&&x.pass==btoa(p));if(!u)return alert('Erro login');if(u.handle==='gabrioche050') u.idade=99; user=u; localStorage.setItem('anga_user_v3',JSON.stringify(user)); init();}
+function sair(){localStorage.removeItem('anga_user_v3');location.reload();}
+let tempCover="",tempPages=[],selectedGenres=[];
+async function init(){
+ await carregarOnline();
+ checkTerms();
+ if(!user){$('auth').classList.remove('hidden');$('app').classList.add('hidden');$('bottomNav').style.display='none';if(users.length>0)$('loginLink').style.display='block';return;}
+ $('auth').classList.add('hidden');$('app').classList.remove('hidden');$('bottomNav').style.display='flex';
+ let adm=isAdmin();
+ $('userTag').textContent=adm?'👑 ADM @'+user.handle:'@'+user.handle;
+ $('userTag').className=adm?'tag admin':'tag';
+ $('who').textContent=user.name+(adm?' 👑 99 anos':` ${user.idade} anos`);
+ $('myBalance').textContent=formatT(balances[user.handle]||0);
+ $('myBalanceVerde').textContent=formatT(balancesVerde[user.handle]||0);
+ $('bAdmin').classList.toggle('hidden',!adm);
+ if(isVerificado(user.handle)){$('verifTag').innerHTML=`<span class="badge blue">✅ ${diasRestantes(user.handle)}d</span>`;}else{$('verifTag').innerHTML='';}
+ $('ageTag').innerHTML=adm?'<span style="background:#FFC700;color:#000;padding:2px 6px;border-radius:99px;font-size:9px">ADM VÊ TUDO</span>':`<span style="background:#222;color:#888;padding:2px 6px;border-radius:99px;font-size:9px">${user.idade} anos</span>`;
+ renderSelectClass(); renderGenres();
+ if($('charsForm').children.length==0)addCharForm('Daike','Protagonista');
+ if(mangas.length==0){mangas=[{id:1,title:"O Boto de Itacoatiara",cover:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500",desc:"Primeiro Angá",genres:["Lenda","Amazônico","LGBT"],classificacao:"14+",characters:[],autor:user.name,handle:user.handle,dono:user.id,likes:0,views:0,likedBy:[],viewedBy:[],createdAt:Date.now()}];saveAll();}
+ if(!missions[user.handle])missions[user.handle]={reads:0,claimed:0};
+ if(balances[user.handle]==undefined) balances[user.handle]=0;
+ if(balancesVerde[user.handle]==undefined) balancesVerde[user.handle]=0;
+ renderFeed();aba('feed');if(adm)renderAdmin();
+ setInterval(carregarOnline,15000);
+}
+function card(m){
+ let idade=user.idade||0;
+ let podeVer=podeVerClassificacao(m.classificacao||"14+", idade);
+ let verif=isVerificado(m.handle);
+ let isDest=(destaques[m.id]&&Date.now()<destaques[m.id])||verif;
+ let prof=profiles[m.handle];
+ let avatar=prof?.avatar?`<img src="${prof.avatar}" style="width:18px;height:18px;border-radius:50%;vertical-align:middle;margin-right:4px">`:''; 
+ let classe=verif?'verificado':(isDest?'destaque':'');
+ if(m.classificacao==="18 Adulto") classe="adulto";
+ if(m.classificacao==="18 Indefinido") classe="pendente";
+ let selo=verif?`<span class="badge blue">✅</span>`:''; 
+ let badge = isAdmin() ? badgeADM(m.classificacao) : badgePublico(m.classificacao);
+ let bloqueadoHtml=!podeVer?`<div style="position:absolute;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:5;text-align:center;padding:10px"><span style="background:#ff2222;color:#fff;padding:8px 12px;border-radius:12px;font-size:11px;font-weight:900">🔒 ${m.classificacao.includes("18")?"18":m.classificacao}<br>Você tem ${idade} anos</span></div>`:'';
+ return `<div class="card ${classe}" onclick="abrirObra(${m.id})">${bloqueadoHtml}<img src="${m.cover}" style="${!podeVer?'filter:blur(16px)':''}"><div class="info"><b style="${prof?.color?`color:${prof.color}`:''}">${avatar}${m.title}${selo}${m.dono==user.id?'<span class=badge>SEU</span>':''}</b><br>${badge}<span style="font-size:10px;color:#888"> ${(m.genres||[]).slice(0,2).join(', ')}</span><br><span style="font-size:11px;color:#666">@${m.handle} • ❤️${m.likes||0} 👁️${m.views||0} • ID:${m.id}</span></div></div>`;
+}
+function renderFeed(){let sorted=[...mangas].sort((a,b)=>{let aV=isVerificado(a.handle)?2:0;let bV=isVerificado(b.handle)?2:0;let aD=destaques[a.id]&&Date.now()<destaques[a.id]?1:0;let bD=destaques[b.id]&&Date.now()<destaques[b.id]?1:0;return (bV+bD)-(aV+aD)||(b.likes||0)-(a.likes||0);});$('grid').innerHTML=sorted.map(card).join('')||'<p style="color:#555">Nenhum</p>';$('meusGrid').innerHTML=mangas.filter(m=>m.dono==user.id).map(card).join('')||'<p style="color:#555">Nenhuma obra</p>';renderRanking('views');let meus=mangas.filter(m=>m.dono==user.id);$('sViews').textContent=meus.reduce((s,m)=>s+(m.views||0),0);$('sLikes').textContent=meus.reduce((s,m)=>s+(m.likes||0),0);$('sBalance').textContent=formatT(balances[user.handle]||0);$('sBalanceVerde').textContent=formatT(balancesVerde[user.handle]||0);$('myBalance').textContent=formatT(balances[user.handle]||0);$('myBalanceVerde').textContent=formatT(balancesVerde[user.handle]||0);$('studioHandle').textContent='@'+user.handle+' • '+(isAdmin()?'ADM 99 anos - VÊ TUDO':user.idade+' anos')+' • 💛 '+formatTFull(balances[user.handle]||0)+' • 💚 '+formatTFull(balancesVerde[user.handle]||0);atualizarLojaPrecos();renderMissions();if(isAdmin())renderAdmin();}
+function atualizarLojaPrecos(){if(!user)return;let ver=isVerificado(user.handle);let dBase=80,iBase=250;let dPreco=precoComDesconto(dBase),iPreco=precoComDesconto(iBase);$('destaquePreco').textContent=ver?`${dPreco} T$ (era ${dBase})`:`${dBase} T$`;$('impulsoPreco').textContent=ver?`${iPreco} T$ (era ${iBase})`:`${iBase} T$`;$('destaqueDesc').textContent=ver?`✅ VERIFICADO - 50% OFF!`:`80 T$ AMARELO`;$('impulsoDesc').textContent=ver?`✅ VERIFICADO - 50% OFF!`:`250 T$ AMARELO`;$('shopDestaque').className=ver?'shop-item verif':'shop-item';$('shopImpulso').className=ver?'shop-item verif':'shop-item';}
+function aba(nome){['feed','postar','studio','rank','buscar','admin','loja','perfil'].forEach(n=>{let btn=$('b'+n.charAt(0).toUpperCase()+n.slice(1));if(btn)btn.classList.remove('active');let tab=$(n+'Tab');if(tab)tab.classList.add('hidden');});let b=$('b'+nome.charAt(0).toUpperCase()+nome.slice(1));if(b)b.classList.add('active');let tab=$(nome+'Tab');if(tab)tab.classList.remove('hidden');if(['feed','studio','rank'].includes(nome))renderFeed();if(nome=='admin')renderAdmin();if(nome=='loja'){renderMissions();atualizarLojaPrecos();}if(nome=='rank')renderRanking('views');}
+function postarManga(){
+ let t=$('mTitle').value.trim(),c=$('mCover').value.trim()||tempCover,d=$('mDesc').value.trim(),cla=$('mClass').value;
+ if(!t)return alert('Título!');if(!c)return alert('Capa!');if(selectedGenres.length==0)return alert('Escolhe pelo menos 1 gênero!');
+ if(!isAdmin()){
+   if(cla==="18"){ cla="18 Indefinido"; }
+   if(cla!=="18 Indefinido" && !podeVerClassificacao(cla, user.idade)) return alert(`Você tem ${user.idade} anos e não pode criar ${cla}`);
+ }
+ let chars=[];document.querySelectorAll('#charsForm .char-card').forEach(el=>{let img=el.querySelector('[id^=p]')?.dataset?.img||'';let name=el.querySelector('[id^=cn]')?.value?.trim()||'';let role=el.querySelector('[id^=cr]')?.value?.trim()||'';if(name)chars.push({name,role,img});});
+ let novo={id:Date.now(),title:t,cover:c,desc:d||'Sem sinopse',genres:[...selectedGenres],classificacao:cla,characters:chars,autor:user.name,handle:user.handle,dono:user.id,likes:0,views:0,likedBy:[],viewedBy:[],createdAt:Date.now()};
+ mangas.unshift(novo);saveAll();
+ $('mTitle').value=$('mCover').value=$('mDesc').value='';tempCover='';$('coverPreview').textContent='📸 Capa';selectedGenres=[];renderGenres();$('charsForm').innerHTML='';charCount=0;addCharForm();
+ if(cla==="18 Indefinido") alert('✅ Obra 18 enviada! Aguardando ADM classificar');
+ else alert(`✅ Obra criada! ${cla}`);
+ aba('studio');
+}
+function abrirObra(id){
+ obraAtual=mangas.find(x=>x.id==id);if(!obraAtual)return;
+ let idade=user.idade||0;
+ if(!podeVerClassificacao(obraAtual.classificacao||"14+", idade)){
+   $('ageTitle').textContent=`🔒 Bloqueado - ${obraAtual.classificacao}`;
+   $('ageText').textContent=`Você tem ${idade} anos.`;
+   $('ageModal').classList.remove('hidden'); return;
+ }
+ if(obraAtual.classificacao.includes("18") && !isAdmin()){
+   obraPendente=id;
+   $('ageTitle').textContent=`🔞 18 - Confirmar`;
+   $('ageText').textContent=`Você tem ${idade} anos. Essa obra é 18. Continuar?`;
+   $('ageModal').classList.remove('hidden'); return;
+ }
+ abrirObraReal(id);
+}
+function confirmarIdade(){ $('ageModal').classList.add('hidden'); if(obraPendente){ let id=obraPendente; obraPendente=null; abrirObraReal(id); } }
+function abrirObraReal(id){
+ obraAtual=mangas.find(x=>x.id==id);if(!obraAtual)return;if(!obraAtual.likedBy)obraAtual.likedBy=[];if(!obraAtual.viewedBy)obraAtual.viewedBy=[];$('app').classList.add('hidden');$('obraView').classList.remove('hidden');$('bottomNav').style.display='none';$('oCover').src=obraAtual.cover;let verif=isVerificado(obraAtual.handle)?`<span class="badge blue">✅ VERIFICADO</span>`:'';$('oTitle').innerHTML=obraAtual.title+' '+verif;$('oAutor').textContent='por '+obraAtual.autor+' @'+obraAtual.handle;$('oClass').innerHTML=(isAdmin()?badgeADM(obraAtual.classificacao):badgePublico(obraAtual.classificacao));$('oDesc').textContent=obraAtual.desc;$('oGenres').innerHTML=(obraAtual.genres||[]).map(g=>`<span class=genre style="border-color:#00FF88;color:#00FF88">${g}</span>`).join('');$('oChars').innerHTML=(obraAtual.characters||[]).map(ch=>`<div class=char-card><img src="${ch.img||'https://via.placeholder.com/100'}"><div><b>${ch.name}</b><p style="font-size:11px;color:#666">${ch.role}</p></div></div>`).join('')||'<p style="color:#555">Sem personagens</p>';let jaCurtiu=obraAtual.likedBy.includes(user.id);$('likeBtn').textContent=jaCurtiu?'💔 Descurtir':'❤️ Curtir';$('likeCount').textContent=(obraAtual.likes||0)+' curtidas';let podeApagar=obraAtual.dono==user.id||isAdmin();$('addCapArea').classList.toggle('hidden',obraAtual.dono!==user.id);$('delArea').classList.toggle('hidden',!podeApagar);if(obraAtual.dono==user.id||isAdmin()){$('obraStats').classList.remove('hidden');$('obraStats').innerHTML=`<div class=stat><b>${obraAtual.views||0}</b><span style="font-size:11px;color:#666">views</span></div><div class=stat><b>${obraAtual.likes||0}</b><span style="font-size:11px;color:#666">corações</span></div><div class=stat><b>${formatT(balances[obraAtual.handle]||0)}</b><span style="font-size:11px;color:#666">💛 Amarelo</span></div><div class=stat><b>${formatT(balancesVerde[obraAtual.handle]||0)}</b><span style="font-size:11px;color:#666">💚 Verde</span></div>`;}else $('obraStats').classList.add('hidden');$('capsList').innerHTML=capitulos.filter(c=>c.mangaId==id).sort((a,b)=>a.num-b.num).map(c=>`<div class=chap onclick="abrirCap(${c.id})"><div><b>${c.title}</b><p style="font-size:11px;color:#666">${c.pages.length} págs - imagem preservada</p></div><span>›</span></div>`).join('')||'<p style="color:#555">Sem caps</p>';}
+function voltarFeed(){$('obraView').classList.add('hidden');$('app').classList.remove('hidden');$('bottomNav').style.display='flex';obraAtual=null;renderFeed();}
+function curtir(){if(!obraAtual)return;if(!obraAtual.likedBy)obraAtual.likedBy=[];let i=obraAtual.likedBy.indexOf(user.id);if(i>-1){obraAtual.likedBy.splice(i,1);obraAtual.likes=Math.max(0,obraAtual.likes-1);}else{obraAtual.likedBy.push(user.id);obraAtual.likes++;}saveAll();$('likeBtn').textContent=obraAtual.likedBy.includes(user.id)?'💔 Descurtir':'❤️ Curtir';$('likeCount').textContent=obraAtual.likes+' curtidas';renderFeed();}
+function postarCap(){if(!obraAtual)return;if(obraAtual.dono!==user.id)return alert('⛔ SÓ O DONO PODE POSTAR!');let t=$('cTitle').value.trim();let pgs=tempPages.length?tempPages:$('cPages').value.split(',').map(s=>s.trim()).filter(Boolean);if(!t||!pgs.length)return alert('Título e páginas com imagem!');let num=capitulos.filter(c=>c.mangaId==obraAtual.id).length+1;capitulos.push({id:Date.now(),mangaId:obraAtual.id,num,title:t,pages:pgs});saveAll();$('cTitle').value=$('cPages').value='';tempPages=[];$('pagesPreview').textContent='📸 Páginas';abrirObraReal(obraAtual.id);}
+function abrirCap(capId){let c=capitulos.find(x=>x.id==capId);let m=mangas.find(x=>x.id==c.mangaId);if(!m.viewedBy)m.viewedBy=[];if(m.dono!==user.id&&!m.viewedBy.includes(user.id)){m.viewedBy.push(user.id);m.views++;saveAll();let mi=missions[user.handle];if(!mi)mi={reads:0,claimed:0};mi.reads=(mi.reads||0)+1;missions[user.handle]=mi;saveAll();checkMissionAuto();}$('obraView').classList.add('hidden');$('leitor').style.display='block';$('lTitle').textContent=m.title+' - '+c.title;$('lAutor').textContent='@'+m.handle;$('lPages').innerHTML=c.pages.map(p=>`<img src="${p}" style="width:100%;display:block">`).join('');}
+function fecharLeitor(){$('leitor').style.display='none';if(obraAtual)$('obraView').classList.remove('hidden');else{$('app').classList.remove('hidden');$('bottomNav').style.display='flex';}renderFeed();}
+function buscar(){let q=$('q').value.toLowerCase().trim();let f=!q?[]:mangas.filter(m=>m.title.toLowerCase().includes(q)||m.handle.toLowerCase().includes(q));$('searchGrid').innerHTML=f.map(card).join('');}
+function pedirApagar(){if(!obraAtual)return;if(obraAtual.dono!==user.id&&!isAdmin())return alert('Só dono ou ADM');mangaParaApagar=obraAtual.id;$('delText').textContent=isAdmin()&&obraAtual.dono!==user.id?`👑 ADM apagar "${obraAtual.title}" de @${obraAtual.handle}?`:`Apagar "${obraAtual.title}"?`;$('confirmDel').classList.remove('hidden');$('delStep1').classList.remove('hidden');$('delStep2').classList.add('hidden');}
+function delStep2(){$('delStep1').classList.add('hidden');$('delStep2').classList.remove('hidden');}
+function confirmarApagarFinal(){let s=$('delPass').value.trim();if(!s)return alert('Senha');if(btoa(s)!==user.pass)return alert('Senha incorreta');if(obraAtual.dono!==user.id&&!isAdmin())return alert('Só dono ou ADM');mangas=mangas.filter(m=>m.id!==mangaParaApagar);capitulos=capitulos.filter(c=>c.mangaId!==mangaParaApagar);saveAll();$('confirmDel').classList.add('hidden');voltarFeed();alert('Apagada');}
+function renderMissions(){if(!user)return;let mi=missions[user.handle]||{reads:0,claimed:0};let prog=Math.min(mi.reads,5);let pode=prog>=5&&mi.claimed<Math.floor(mi.reads/5);$('missionsList').innerHTML=`<div class="mission"><div><b>📚 Ler 5 Angás</b><br><span style="font-size:11px;color:#888">${prog}/5 • 5 T$ AMARELO</span></div><button class="btn btn-tupi" style="width:auto;padding:10px 16px;font-size:12px;margin:0" ${pode?'':'disabled style="opacity:.4"'} onclick="resgatarMissao()">Resgatar 5</button></div>`;}
+function checkMissionAuto(){let mi=missions[user.handle];if(!mi)return;if(mi.reads>=5&&mi.reads%5==0){let vezes=Math.floor(mi.reads/5)-mi.claimed;if(vezes>0){balances[user.handle]=(balances[user.handle]||0)+vezes*5;mi.claimed+=vezes;missions[user.handle]=mi;saveAll();alert(`🎉 +${vezes*5} T$ AMARELO!`);renderFeed();}}}
+function resgatarMissao(){let mi=missions[user.handle];if(mi.reads<5)return alert('Lê 5');let vezes=Math.floor(mi.reads/5)-mi.claimed;if(vezes<=0)return alert('Já resgatou');balances[user.handle]=(balances[user.handle]||0)+vezes*5;mi.claimed+=vezes;saveAll();alert(`✅ +${vezes*5} T$ AMARELO!`);renderFeed();}
+function comprarDestaque(){let obraId=obraAtual?obraAtual.id:(mangas.filter(x=>x.dono==user.id)[0]?.id);if(!obraId)return alert('Cria obra');let custo=precoComDesconto(80);if((balances[user.handle]||0)<custo)return alert(`⛔ Precisa ${custo} T$ AMARELO!`);balances[user.handle]-=custo;destaques[obraId]=Date.now()+24*3600*1000;saveAll();alert(`⭐ Destaque 24h por ${custo} T$ AMARELO`);renderFeed();}
+function comprarImpulso(dias){let custo=precoComDesconto(250);if((balances[user.handle]||0)<custo)return alert(`⛔ Precisa ${custo} T$ AMARELO!`);let obra=mangas.filter(x=>x.dono==user.id)[0];if(!obra)return alert('Cria obra');balances[user.handle]-=custo;destaques[obra.id]=Date.now()+dias*24*3600*1000;saveAll();alert(`🚀 7 dias por ${custo} T$ AMARELO`);renderFeed();}
+function salvarPerfil(){if((balances[user.handle]||0)<0.31&&!profiles[user.handle])return alert('Precisa 0,31 T$ AMARELO');if(!profiles[user.handle])balances[user.handle]-=0.31;profiles[user.handle]={avatar:tempAvatar||profiles[user.handle]?.avatar||'',banner:tempBanner||profiles[user.handle]?.banner||'',color:$('pColor').value,bio:$('pBio').value};saveAll();alert('🎨 Perfil salvo!');aba('studio');}
+function copiarPix(){navigator.clipboard.writeText(PIX_KEY).then(()=>alert('Pix copiado: '+PIX_KEY)).catch(()=>prompt('Copia:',PIX_KEY));}
+function criarPedidoPix(qtd,valor,tipo){
+ let u=user;
+ let id=Date.now();
+ pixPedidos.unshift({id,handle:u.handle,qtd,valor,tipo,status:'PENDENTE',data:new Date().toLocaleString()});
+ saveAll();
+ let html=`<p>Pix copia e cola:</p><div class="pix-key-box"><span style="color:#00FF88;font-weight:900">${PIX_KEY}</span><button class="btn btn-sec" style="width:auto;margin:0;padding:6px 12px" onclick="copiarPix()">COPIAR</button></div><p>Valor: <b style="color:#00FF88">R$ ${valor}</b><br>Ganha: <b>${qtd} T$ AMARELO</b><br>Pedido #${id}</p><p style="font-size:10px;color:#FFC700">Após pagar avise gabrioche050</p>`;
+ $('pixContent').innerHTML=html;
+ $('pixModal').classList.remove('hidden');
+}
+function comprarPix(qtd,reais){criarPedidoPix(qtd,reais,'TUPI_AMARELO');}
+function comprarVideo(){criarPedidoPix(0,10,'VIDEO_PROMO');}
+function comprarVerificado(){criarPedidoPix(0,14.9,'VERIFICADO_AZUL');}
+function comprarPlus(valor,qtd,tipo){criarPedidoPix(qtd,valor,tipo+'_AMARELO');}
+function abrirDoarModal(){ $('doarHandle').value=''; $('doarQtd').value=''; $('doarModal').classList.remove('hidden'); }
+function confirmarDoacao(){
+  let h=$('doarHandle').value.trim().replace(/@/g,'').toLowerCase();
+  let qtd=parseInt($('doarQtd').value);
+  if(!h||!qtd||qtd<=0) return alert('Handle e qtd');
+  if(!users.find(u=>u.handle==h)) return alert('User não existe');
+  if((balances[user.handle]||0)<qtd) return alert('Você não tem T$ AMARELO suficiente');
+  if(h===user.handle) return alert('Não pode doar pra você mesmo');
+  balances[user.handle]-=qtd;
+  balancesVerde[h]=(balancesVerde[h]||0)+qtd;
+  saveAll();
+  $('doarModal').classList.add('hidden');
+  alert(`✅ Doou ${formatTFull(qtd)} T$ AMARELO pra @${h} -> virou ${formatTFull(qtd)} T$ VERDE (tem valor em dinheiro, não pode gastar nem doar) - CÓDIGO DETECTOU`);
+  renderFeed(); renderAdmin();
+}
+function abrirResgateModal(){
+  let verde=balancesVerde[user.handle]||0;
+  $('resgateInfo').innerHTML=`<p style="font-size:12px">Você tem <b style="color:#00FF88">${formatTFull(verde)} T$ VERDE</b><br>100 VERDE = R$1,00<br>Mínimo 100 VERDE - Só Verde tem valor</p>`;
+  $('resgateQtd').value=''; $('resgatePix').value=''; $('resgateModal').classList.remove('hidden');
+}
+function confirmarResgate(){
+  let qtd=parseInt($('resgateQtd').value);
+  let pix=$('resgatePix').value.trim();
+  if(!qtd||qtd<100) return alert('Mínimo 100 T$ VERDE pra resgatar dinheiro');
+  if((balancesVerde[user.handle]||0)<qtd) return alert('Você não tem VERDE suficiente');
+  if(!pix) return alert('Coloca seu PIX');
+  let reais=(qtd/100).toFixed(2);
+  balancesVerde[user.handle]-=qtd;
+  resgatePedidos.unshift({id:Date.now(),handle:user.handle,qtd,reais,pix,status:'PENDENTE',data:new Date().toLocaleString()});
+  saveAll();
+  $('resgateModal').classList.add('hidden');
+  alert(`✅ Pedido de resgate: ${formatTFull(qtd)} VERDE = R$${reais} pro PIX ${pix} - Aguarda ADM liberar no PIX 92994215426`);
+  renderFeed(); renderAdmin();
+}
+function renderRanking(tipo){
+  let obrasSorted=[...mangas];
+  let usersSorted=[...users];
+  if(tipo==='views') obrasSorted.sort((a,b)=>(b.views||0)-(a.views||0));
+  if(tipo==='likes') obrasSorted.sort((a,b)=>(b.likes||0)-(a.likes||0));
+  if(tipo==='obras'){
+    let count={}; mangas.forEach(m=>{count[m.handle]=(count[m.handle]||0)+1});
+    usersSorted.sort((a,b)=>(count[b.handle]||0)-(count[a.handle]||0));
+  }
+  if(tipo==='amarelo') usersSorted.sort((a,b)=>(balances[b.handle]||0)-(balances[a.handle]||0));
+  if(tipo==='verde') usersSorted.sort((a,b)=>(balancesVerde[b.handle]||0)-(balancesVerde[a.handle]||0));
+  $('rankGrid').innerHTML=obrasSorted.slice(0,12).map(card).join('')||'<p style="color:#555">Nenhuma obra</p>';
+  let htmlUsers=usersSorted.slice(0,20).map((u,i)=>{
+    let amarelo=balances[u.handle]||0;
+    let verde=balancesVerde[u.handle]||0;
+    let obrasCount=mangas.filter(m=>m.handle===u.handle).length;
+    let viewsCount=mangas.filter(m=>m.handle===u.handle).reduce((s,m)=>s+(m.views||0),0);
+    let likesCount=mangas.filter(m=>m.handle===u.handle).reduce((s,m)=>s+(m.likes||0),0);
+    let posClass=i===0?'gold':i===1?'silver':i===2?'bronze':'';
+    return `<div class="rank-item"><div class="rank-pos ${posClass}">${i+1}º</div><div style="flex:1"><b>@${u.handle}</b> ${admins.includes(u.handle)?'👑':''} ${isVerificado(u.handle)?'✅':''}<br><span style="font-size:10px;color:#888">📚 ${obrasCount} • 👁️ ${formatT(viewsCount)} • ❤️ ${formatT(likesCount)} • 💛 ${formatT(amarelo)} • 💚 ${formatT(verde)}</span></div><button class="btn btn-sec" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="abrirDoarModal();$('doarHandle').value='${u.handle}'">DOAR</button></div>`;
+  }).join('');
+  $('rankUsers').innerHTML=htmlUsers||'<p style="color:#555">Nenhum usuário</p>';
+}
+function adminMudarClass(){ if(!isAdmin()) return; let id=parseInt($('changeId').value); let nova=$('changeClass').value; let m=mangas.find(x=>x.id==id); if(!m) return alert('Obra não encontrada'); m.classificacao=nova; saveAll(); alert(`✅ ${m.title} virou ${nova}`); renderAdmin(); renderFeed(); }
+function renderAdmin(){
+if(!isAdmin())return;
+let pendentes=mangas.filter(m=>m.classificacao==="18 Indefinido");
+if(pendentes.length>0){ $('notif18').classList.remove('hidden'); $('notifText').textContent=`${pendentes.length} obra(s): ${pendentes.map(m=>`${m.title} ID:${m.id}`).join(', ')}`; } else { $('notif18').classList.add('hidden'); }
+$('aUsers').textContent=users.length;$('aObras').textContent=mangas.length;$('aTupi').textContent=formatT(Object.values(balances).reduce((a,b)=>a+b,0));$('aTupiVerde').textContent=formatT(Object.values(balancesVerde).reduce((a,b)=>a+b,0));
+$('admSaldo').textContent=formatTFull(balances[user.handle]||0);
+$('admSaldoVerde').textContent=formatTFull(balancesVerde[user.handle]||0);
+$('listaADMs').textContent=admins.join(', ');
+$('verifList').innerHTML=Object.keys(verificados).map(h=>{let v=verificados[h];let dias=diasRestantes(h);return `<div class="user-row"><div><b>@${h} ✅</b><br><span style="font-size:10px;color:#1DA1F2">${dias} dias</span></div><button class="btn btn-sec" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="adminRemoverVerificadoHandle('${h}')">REMOVER</button></div>`;}).join('')||'<p style=color:#555>Nenhum</p>';
+$('adminUsersList').innerHTML=users.map(u=>{
+  let amarelo=balances[u.handle]||0;
+  let verde=balancesVerde[u.handle]||0;
+  let ehADM = admins.includes(u.handle);
+  let protegido = u.handle==='gabrioche050';
+  return `<div class="user-row" style="flex-direction:column;align-items:stretch">
+    <div><b>@${u.handle}</b> ${ehADM?'<span style=color:#FFC700>👑 ADM</span>':''} ${protegido?'<span style=color:#ff5555>🔒 DONO PROTEGIDO</span>':''} • ${u.name} • 💛 ${formatTFull(amarelo)} • 💚 ${formatTFull(verde)}<br><span style="font-size:10px;color:#888">${u.criadoEm||''}</span></div>
+    <div style="display:flex;gap:4px;margin-top:8px;flex-wrap:wrap">
+      <button class="btn btn-blue" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="adminEntrarComo('${u.handle}')">👁️ ENTRAR COMO ${protegido?'(PROTEGIDO)':''}</button>
+      <button class="btn btn-gold" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="adminResetarSenha('${u.handle}')">🔑 RESETAR SENHA</button>
+      <button class="btn ${ehADM?'btn-sec':'btn-gold'}" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="${ehADM?`adminRemoverADM('${u.handle}')`:`adminDarADM('${u.handle}')`}">${ehADM?'REMOVER ADM':'DAR ADM'}</button>
+      <button class="btn btn-gold" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="abrirBlockModal('${u.handle}')">BLOQ</button>
+      <button class="btn ${bans[u.handle]?'btn-sec':'btn-danger'}" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="adminBanComMotivo('${u.handle}')">${bans[u.handle]?'DESBAN':'BAN'}</button>
+    </div>
+  </div>`;
+}).join('');
+$('adminObrasList').innerHTML=mangas.map(m=>`<div class="card ${isVerificado(m.handle)?'verificado':''} ${m.classificacao==="18 Adulto"?"adulto":m.classificacao==="18 Indefinido"?"pendente":""}" onclick="abrirObra(${m.id})"><img src="${m.cover}"><div class="info"><b>${m.title}</b><br>${badgeADM(m.classificacao)}<br><span style="font-size:11px">@${m.handle} ID:${m.id}</span><button class="btn btn-danger" style="padding:6px;font-size:10px" onclick="event.stopPropagation();adminApagarObra(${m.id})">APAGAR</button><button class="btn btn-gold" style="padding:6px;font-size:10px" onclick="event.stopPropagation();$('changeId').value=${m.id}">CLASSIFICAR</button></div></div>`).join('');
+$('pixPedidos').innerHTML=pixPedidos.slice().reverse().map(p=>{let tipo=p.tipo==='VERIFICADO_AZUL'?'<span style=color:#1DA1F2>✅ VERIFICADO R$14,90</span>':p.tipo.includes('PLUS')?`<span style=color:#FFC700>👑 ${p.tipo} R$${p.valor}</span>`:`${p.qtd} 💛 por R$ ${p.valor}`;return `<div class="user-row"><div><b>@${p.handle}</b> quer ${tipo}<br><span style="font-size:10px;color:#888">${p.data} • ${p.status}</span></div><div style="display:flex;gap:4px"><button class="btn ${p.tipo==='VERIFICADO_AZUL'?'btn-blue':'btn-gold'}" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="${p.tipo==='VERIFICADO_AZUL'?`adminLiberarVerificado('${p.handle}',${p.id})`:`adminLiberarPix(${p.id})`}">${p.tipo==='VERIFICADO_AZUL'?'LIBERAR AZUL':'LIBERAR AMARELO'}</button><button class="btn btn-sec" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="adminRecusarPix(${p.id})">X</button></div></div>`;}).join('')||'<p style=color:#555>Nenhum</p>';
+$('resgatePedidos').innerHTML=resgatePedidos.slice().reverse().map(r=>`<div class="user-row" style="border-color:#00FF88"><div><b>@${r.handle}</b> quer resgatar <b style="color:#00FF88">${formatTFull(r.qtd)} VERDE = R$${r.reais}</b><br><span style="font-size:10px;color:#888">PIX: ${r.pix} • ${r.data} • ${r.status}</span></div><div style="display:flex;gap:4px"><button class="btn btn-green" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="adminLiberarResgate(${r.id})">PAGAR</button><button class="btn btn-sec" style="width:auto;padding:6px 8px;font-size:9px;margin:0" onclick="adminRecusarResgate(${r.id})">X</button></div></div>`).join('')||'<p style=color:#555>Nenhum resgate</p>';
+}
+function abrirBlockModal(handle){if(handle==='gabrioche050')return alert('Não pode bloquear o dono!');$('blockHandle').value=handle;$('blockMotivo').value='';$('blockInstrucao').value='';$('blockTempo').value='60';$('blockTitle').textContent=`Bloquear @${handle} com motivo`;$('blockModal').classList.remove('hidden');}
+function confirmarBlock(){let h=$('blockHandle').value;let motivo=$('blockMotivo').value.trim();let instrucao=$('blockInstrucao').value.trim();let tempo=parseInt($('blockTempo').value);if(!motivo||!instrucao||!tempo)return alert('Preenche motivo, instrução e tempo');blocks[h]=Date.now()+tempo*60000;blockInfos[h]={motivo,instrucao,tempo,por:'@gabrioche050',data:new Date().toLocaleString()};saveAll();$('blockModal').classList.add('hidden');alert(`⏰ @${h} bloqueado por ${tempo} min`);renderAdmin();}
+function adminBanComMotivo(h){if(h==='gabrioche050')return alert('⛔ Não pode banir o dono!');if(bans[h]){delete bans[h];delete blockInfos[h];saveAll();renderAdmin();return alert(`✅ @${h} desbanido`);}let motivo=prompt(`Motivo do BAN em @${h}?`);if(!motivo)return;let instrucao=prompt(`O que fazer pra desbanir?`);if(!instrucao)return;bans[h]=true;blockInfos[h]={motivo,instrucao,tipo:'BAN',por:'@gabrioche050',data:new Date().toLocaleString()};saveAll();alert(`⛔ @${h} BANIDO`);renderAdmin();}
+function adminDarDinheiro(){if(!isAdmin())return;let h=$('giveHandle').value.trim().replace(/@/g,'').toLowerCase();let v=parseFloat($('giveValor').value);let tipo=$('giveTipo').value;if(!h||!v)return alert('Handle e valor');if(!users.find(u=>u.handle==h))return alert('User não existe');if(tipo==='amarelo') balances[h]=(balances[h]||0)+v; else balancesVerde[h]=(balancesVerde[h]||0)+v; saveAll();alert(`✅ ${formatTFull(v)} T$ ${tipo.toUpperCase()} pra @${h}! ILIMITADO`);renderAdmin();renderFeed();}
+function adminTirarDinheiro(){if(!isAdmin())return;let h=$('giveHandle').value.trim().replace(/@/g,'').toLowerCase();let v=parseFloat($('giveValor').value);let tipo=$('giveTipo').value;if(!h||!v)return alert('Handle e valor');if(!users.find(u=>u.handle==h))return alert('User não existe');if(tipo==='amarelo'){ balances[h]=(balances[h]||0)-v; if(balances[h]<0) balances[h]=0; } else { balancesVerde[h]=(balancesVerde[h]||0)-v; if(balancesVerde[h]<0) balancesVerde[h]=0; } saveAll();alert(`💸 ${formatTFull(v)} T$ ${tipo} removido de @${h}!`);renderAdmin();renderFeed();}
+function adminLiberarVerificadoInput(){let h=$('verifHandle').value.trim().replace(/@/g,'').toLowerCase();if(!h)return alert('Handle');adminLiberarVerificado(h,null);}
+function adminLiberarVerificado(handle,pedidoId){if(!users.find(u=>u.handle==handle))return alert('User não existe');verificados[handle]={expira:Date.now()+30*24*3600*1000,desde:Date.now(),por:'@gabrioche050',reais:14.9};if(pedidoId){let p=pixPedidos.find(x=>x.id==pedidoId);if(p)p.status='liberado';}saveAll();alert(`✅ @${handle} VERIFICADO AZUL 30d! R$14,90 JUSTO`);renderAdmin();renderFeed();}
+function adminRemoverVerificado(){let h=$('verifHandle').value.trim().replace(/@/g,'').toLowerCase();if(!h)return alert('Handle');delete verificados[h];saveAll();alert(`❌ Verificado removido de @${h}`);renderAdmin();renderFeed();}
+function adminRemoverVerificadoHandle(h){delete verificados[h];saveAll();renderAdmin();renderFeed();}
+function zerarTudoADM(){if(!confirm('Zerar seu saldo ADM? Vai pra 0 T$')) return; balances['gabrioche050']=0; balancesVerde['gabrioche050']=0; saveAll(); alert('✅ Saldo ADM zerado!'); renderAdmin(); renderFeed();}
+function adminApagarObra(id){if(!isAdmin())return;if(!confirm('ADM apagar obra?'))return;mangas=mangas.filter(x=>x.id!=id);capitulos=capitulos.filter(c=>c.mangaId!=id);delete destaques[id];saveAll();renderAdmin();renderFeed();}
+function adminLiberarPix(id){let p=pixPedidos.find(x=>x.id==id);if(!p)return;balances[p.handle]=(balances[p.handle]||0)+p.qtd; p.status='liberado';saveAll();alert(`💰 ${formatTFull(p.qtd)} T$ AMARELO pra @${p.handle}! ILIMITADO`);renderAdmin();renderFeed();}
+function adminRecusarPix(id){pixPedidos=pixPedidos.filter(x=>x.id!=id);saveAll();renderAdmin();}
+function adminLiberarResgate(id){let r=resgatePedidos.find(x=>x.id==id);if(!r)return;r.status='PAGO - PIX 92994215426';saveAll();alert(`✅ Pagou R$${r.reais} pra @${r.handle} no PIX ${r.pix}`);renderAdmin();}
+function adminRecusarResgate(id){resgatePedidos=resgatePedidos.filter(x=>x.id!=id);saveAll();renderAdmin();}
+init();
+</script>
+</body>
+</html>

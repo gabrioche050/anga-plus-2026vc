@@ -1,0 +1,23 @@
+{
+  "name": "ANGÁ PLUS",
+  "short_name": "ANGÁ",
+  "description": "Plataforma de Angás e Mangás Amazônicos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070708",
+  "theme_color": "#00FF88",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
